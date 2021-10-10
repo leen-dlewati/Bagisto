@@ -11,7 +11,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
          * If some routes are not able to merge the cart, then place the route in this
          * group.
          */
-        Route::group(['middleware' => ['cart.merger']], function () {
+     //   Route::group(['middleware' => ['cart.merger']], function () {
             /**
              * Authenticated routes. All the routes inside this, will be passed
              * by customer middleware.
@@ -62,7 +62,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
 
             Route::get('/category-products/{categoryId}', 'ShopController@getCategoryProducts')
                 ->name('velocity.category.products');
-        });
+       // });
 
         /**
          * Cart, coupons and checkout.

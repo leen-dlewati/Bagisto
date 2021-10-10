@@ -184,6 +184,9 @@ Route::group(['middleware' => ['web', 'admin_locale']], function () {
             ])->name('admin.groups.update');
 
             Route::post('groups/delete/{id}', 'Webkul\Admin\Http\Controllers\Customer\CustomerGroupController@destroy')->name('admin.groups.delete');
+            
+            
+
 
 
             // Sales Routes
@@ -280,6 +283,30 @@ Route::group(['middleware' => ['web', 'admin_locale']], function () {
                     'view' => 'admin::sales.transactions.view',
                 ])->name('admin.sales.transactions.view');
             });
+
+            //////// my added code ////////
+            //Cities Routes
+
+            Route::view('/cities', 'admin::cities.index')->name('cities.admin.index');
+            Route::get('/cities/create', 'ACME\CustomShipping\Http\Controllers\CityController@create')->defaults('_config', [
+                'view' => 'admin::cities.create',
+            ])->name('admin.cities.create');
+            Route::post('/cities/create', 'ACME\CustomShipping\Http\Controllers\CityController@store')->defaults('_config', [
+                'redirect' => 'cities.admin.index',
+            ])->name('admin.cities.store');
+
+            Route::get('/cities/edit/{id}', 'ACME\CustomShipping\Http\Controllers\CityController@edit')->defaults('_config', [
+                'view' => 'admin::cities.edit',
+            ])->name('admin.cities.edit');
+
+            Route::put('/cities/edit/{id}', 'ACME\CustomShipping\Http\Controllers\CityController@update')->defaults('_config', [
+                'redirect' => 'cities.admin.index',
+            ])->name('admin.cities.update');
+
+            Route::post('/cities/delete/{id}', 'ACME\CustomShipping\Http\Controllers\CityController@destroy')->name('admin.cities.delete');
+
+
+
 
             // Catalog Routes
             Route::prefix('catalog')->group(function () {

@@ -15,9 +15,9 @@
                             {{ trans($item['name']) }}
                         </a>
                     </li>
-
+                   
                 @endforeach
-
+               
             </ul>
 
         @endif

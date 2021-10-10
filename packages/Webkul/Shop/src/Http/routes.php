@@ -149,7 +149,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
      * If some routes are not able to merge the cart, then place the route in this
      * group.
      */
-    Route::group(['middleware' => ['cart.merger']], function () {
+    //Route::group(['middleware' => ['cart.merger']], function () {
         /**
          * Customer routes.
          */
@@ -356,5 +356,5 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
                 'category_view' => 'shop::products.index'
             ])
             ->name('shop.productOrCategory.index');
-    });
+    //});
 });
